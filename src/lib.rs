@@ -1,3 +1,4 @@
+pub extern crate rppal;
 use rppal::i2c::I2c;
 use std::{thread, time};
 
