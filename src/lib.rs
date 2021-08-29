@@ -171,7 +171,7 @@ impl ADS1115 {
         Ok(())
     }
 
-    pub fn read_value(&self, i2c: &mut rppal::i2c::I2c) -> Result<u16, &str> {
+    fn read_value(&self, i2c: &mut rppal::i2c::I2c) -> Result<u16, &str> {
         return match self.coefficient {
             Some(coef) => {
                 let mut data = [0u8; 2];
