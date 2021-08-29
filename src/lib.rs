@@ -4,6 +4,7 @@ use std::{thread, time};
 
 //ADS1115 register map
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115RegisterMap {
     Ads1115RegPointerConvert = 0x00,
     // Conversion register
@@ -17,6 +18,7 @@ pub enum Ads1115RegisterMap {
 
 //ADS1115 Configuration Register
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115MuxConfig {
     Ads1115RegConfigMuxDiff01 = 0x00,
     // Differential P = AIN0, N = AIN1 (default)
@@ -52,6 +54,7 @@ pub enum Ads1115PgaConfig {
 }
 
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115ModeConfig {
     Ads1115RegConfigModeContin = 0x00,
     // Continuous conversion mode
@@ -59,6 +62,7 @@ pub enum Ads1115ModeConfig {
 }
 
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115SampleRateConfig {
     Ads1115RegConfigDr8sps = 0x00,
     // 8 samples per second
@@ -78,6 +82,7 @@ pub enum Ads1115SampleRateConfig {
 }
 
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115ComparatorModeConfig {
     Ads1115RegConfigCmodeTrad = 0x00,
     // Traditional comparator with hysteresis (default)
@@ -85,12 +90,15 @@ pub enum Ads1115ComparatorModeConfig {
 }
 
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115OsConfig {
     Ads1115RegConfigOsNoeffect = 0x00,
     // No effect
     Ads1115RegConfigOsSingle = 0x80, // Begin a single conversion
 }
 
+#[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115CQConfig {
     Ads1115RegConfigCque1conv = 0x00,
     // Assert ALERT/RDY after one conversions
@@ -103,12 +111,14 @@ pub enum Ads1115CQConfig {
 
 
 #[repr(u16)]
+#[derive(Copy, Clone)]
 pub enum Ads1115Address {
     I2c48 = 0x48,
     I2c49 = 0x49,
 }
 
 #[repr(u8)]
+#[derive(Copy, Clone)]
 pub enum Ads1115Channel {
     Chan0 = 0,
     Chan1 = 1,
