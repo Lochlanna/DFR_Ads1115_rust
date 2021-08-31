@@ -166,7 +166,7 @@ impl ADS1115 {
     fn configure_single(&self, channel: Ads1115Channel, i2c: &mut rppal::i2c::I2c) -> Result<(), &str> {
         match self.gain {
             Some(gain) => {
-                let mut config = [(Ads1115OsConfig::Ads1115RegConfigOsSingle as u8) | gain as u8 | (Ads1115ModeConfig::Ads1115RegConfigModeContin as u8), (Ads1115SampleRateConfig::Ads1115RegConfigDr128sps as u8) | (Ads1115CQConfig::Ads1115RegConfigCqueNone as u8)];
+                let mut config = [(Ads1115OsConfig::Ads1115RegConfigOsSingle as u8) | gain as u8 | (Ads1115ModeConfig::Ads1115RegConfigModeContin as u8), (Ads1115SampleRateConfig::Ads1115RegConfigDr250sps as u8) | (Ads1115CQConfig::Ads1115RegConfigCqueNone as u8)];
                 match channel {
                     Ads1115Channel::Chan0 => config[0] = config[0] | (Ads1115MuxConfig::Ads1115RegConfigMuxSingle0 as u8),
                     Ads1115Channel::Chan1 => config[0] = config[0] | (Ads1115MuxConfig::Ads1115RegConfigMuxSingle1 as u8),
